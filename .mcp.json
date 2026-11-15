@@ -1,10 +1,9 @@
 {
     "mcpServers": {
         "laravel-boost": {
-            "command": "wsl.exe",
+            "command": "php",
             "args": [
-                "/usr/bin/php8.5",
-                "/home/roby/PROJECT/PACKAGE/PHP/LARAVEL-SECURITY/pasak/ring/pasak-yes/artisan",
+                "artisan",
                 "boost:mcp"
             ]
         }

@@ -13,16 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->append([
-            \Pasak\SecureMonitor\Http\Middleware\PasakBlockIpAddress::class,
-            \Pasak\SecureMonitor\Http\Middleware\PasakDetectSecurityThreats::class,
-            \Pasak\SecureMonitor\Http\Middleware\PasakInjectAnnouncementBanner::class,
-        ]);
-
-        
-        
-        
-       
+        //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

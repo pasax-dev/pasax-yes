@@ -19,7 +19,7 @@ class PostSeeder extends Seeder
             [
                 'title' => 'Mengenal WAF dan Cara Kerjanya',
                 'excerpt' => 'Pengantar Web Application Firewall: apa, kenapa, dan bagaimana ia menyaring request jahat.',
-                'body' => "Web Application Firewall (WAF) duduk di antara pengguna dan aplikasi, memeriksa setiap request terhadap pola serangan yang dikenal.\n\nPola seperti path traversal (../), injeksi skrip (<script>), dan probe berkas sensitif (.env) diblokir sebelum mencapai kode aplikasi.\n\nDi lab ini, Pasak berperan sebagai WAF-nya; tanpa Pasak semua vektor lolos dengan 200 OK.",
+                'body' => "Web Application Firewall (WAF) duduk di antara pengguna dan aplikasi, memeriksa setiap request terhadap pola serangan yang dikenal.\n\nPola seperti path traversal (../), injeksi skrip (<script>), dan probe berkas sensitif (.env) diblokir sebelum mencapai kode aplikasi.\n\nWAF berperan menyaring pola mencurigakan sebelum request mencapai logika aplikasi.",
             ],
             [
                 'title' => 'Panduan Upload Gambar yang Aman di Laravel',
@@ -29,7 +29,7 @@ class PostSeeder extends Seeder
             [
                 'title' => 'Audit Keamanan Tanpa WAF: 4 Tahap Terbukti',
                 'excerpt' => 'Alur audit lab: pindai permukaan, kirim vektor, buktikan upload, manfaatkan shell.',
-                'body' => "Tahap 1: pindai permukaan dan catat temuan. Tahap 2: kirim vektor serangan dan amati status 200 (lolos).\n\nTahap 3: unggah shell.php.jpg dan verifikasi bisa diakses publik. Tahap 4: eksekusi perintah via /shell untuk membuktikan dampak.\n\nSetelah Pasak dipasang, ulangi: vektor instant-block harus menjadi 403.",
+                'body' => "Tahap 1: pindai permukaan dan catat temuan. Tahap 2: kirim vektor serangan dan amati status 200 (lolos).\n\nTahap 3: unggah shell.php.jpg dan verifikasi bisa diakses publik. Tahap 4: eksekusi perintah via /shell untuk membuktikan dampak.\n\nSetelah proteksi dipasang, ulangi: vektor berbahaya harus ditolak dengan status 403.",
             ],
         ];
 

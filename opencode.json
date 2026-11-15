@@ -5,9 +5,8 @@
             "type": "local",
             "enabled": true,
             "command": [
-                "wsl.exe",
-                "/usr/bin/php8.5",
-                "/home/roby/PROJECT/PACKAGE/PHP/LARAVEL-SECURITY/pasak/ring/pasak-yes/artisan",
+                "php",
+                "artisan",
                 "boost:mcp"
             ]
         }

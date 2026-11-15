@@ -2,8 +2,8 @@
 @section('title', 'Beranda')
 @section('content')
 <div class="hero">
-<h1>📰 Blog Pasak-Yes</h1>
-<p>Catatan seputar WAF, keamanan web, dan Laravel — ditulis dari lab yang dilindungi Pasak.</p>
+<h1>📰 Blog</h1>
+<p>Catatan seputar web dan Laravel.</p>
 </div>
 
 @if($featured !== null)
@@ -42,12 +42,4 @@
 <h2 style="font-size:1.2rem">Jelajahi kategori</h2>
 <p>@foreach($categories as $c)<span class="badge cat">{{ $c->name }} ({{ $c->posts_count }})</span>@endforeach</p>
 @endif
-
-<div class="card" style="border-color:#166534">
-<h2>🛡️ Terlindungi Pasak (Bulwark)</h2>
-<p class="meta">WAF aktif — signature instant-block, throttle login, dan karantina perangkat berjalan. Coba kirim vektor serangan dari <b>app-waf</b>: pola berbahaya dijawab <code>403</code>.</p>
-@if(Route::has('pasak.dashboard.overview'))
-<p><a class="btn primary" href="{{ route('pasak.dashboard.overview') }}">Buka dasbor keamanan →</a></p>
-@endif
-</div>
 @endsection

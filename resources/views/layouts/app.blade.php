@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>@yield('title', 'Blog') — Pasak-No</title>
+<title>@yield('title', 'Blog') — Blog</title>
 <style>
 *{box-sizing:border-box}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#0b0f14;color:#e6edf3;line-height:1.6}
 a{color:#60a5fa;text-decoration:none}a:hover{text-decoration:underline}
@@ -45,22 +45,6 @@ label{font-size:.85rem;display:block;margin-bottom:.75rem}.ok{color:#22c55e}.err
 table{width:100%;font-size:.85rem;border-collapse:collapse}th,td{padding:.5rem;border-bottom:1px solid #1f2937;text-align:left;vertical-align:top}
 code{background:#1f2937;padding:.1rem .35rem;border-radius:.25rem;font-size:.8rem}
 .footer{border-top:1px solid #1f2937;padding:1.5rem;text-align:center;color:#9ca3af;font-size:.85rem}
-/* Floating button kerentanan */
-.vuln-fab{position:fixed;right:1.25rem;bottom:1.25rem;z-index:60;display:flex;align-items:center;gap:.5rem;background:#7f1d1d;border:1px solid #ef4444;color:#fff;font-weight:700;font-size:.85rem;border-radius:999px;padding:.7rem 1.1rem;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.5)}
-.vuln-fab:hover{background:#991b1b}
-.vuln-fab .dot{display:inline-block;min-width:1.4rem;text-align:center;background:#ef4444;border-radius:999px;font-size:.75rem;padding:.05rem .35rem}
-/* Sheet setengah layar */
-.vuln-backdrop{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .2s}
-.vuln-backdrop.open{opacity:1;pointer-events:auto}
-.vuln-sheet{position:fixed;top:0;right:0;bottom:0;z-index:71;width:min(50vw,720px);background:#0d1420;border-left:1px solid #374151;transform:translateX(100%);transition:transform .25s ease;display:flex;flex-direction:column}
-.vuln-sheet.open{transform:translateX(0)}
-.vuln-sheet header{display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;border-bottom:1px solid #1f2937;flex-shrink:0}
-.vuln-sheet header h2{font-size:1rem;margin:0;flex:1}
-.vuln-sheet .sheet-body{overflow-y:auto;padding:1rem 1.25rem}
-.vuln-item{border:1px solid #1f2937;border-radius:.5rem;padding:.75rem;margin-bottom:.6rem;background:#111827}
-.vuln-item b{font-size:.87rem}.vuln-item p{font-size:.8rem;color:#9ca3af;margin:.25rem 0 0}
-.sev{display:inline-block;font-size:.7rem;font-weight:700;border-radius:.25rem;padding:.1rem .45rem;margin-left:.5rem}
-.sev.critical{background:#7f1d1d;color:#fecaca}.sev.high{background:#78350d;color:#fde68a}.sev.medium{background:#1e3a8a;color:#bfdbff}
 /* Responsif */
 @media (max-width:768px){
 .navbar .inner{padding:.7rem 1rem;gap:.75rem}
@@ -70,18 +54,16 @@ code{background:#1f2937;padding:.1rem .35rem;border-radius:.25rem;font-size:.8re
 .navlinks a{padding:.6rem .8rem}
 .nav-auth{margin-left:0;flex-direction:column;align-items:stretch}
 .nav-auth .btn{text-align:center}
-.vuln-sheet{width:100vw}
 .hero h1{font-size:1.5rem}
 .article h1{font-size:1.5rem}
 .container{padding:1.25rem 1rem 3rem}
-.vuln-fab{right:.75rem;bottom:.75rem;padding:.6rem .9rem;font-size:.8rem}
 table{font-size:.78rem}
 }
 </style>
 </head>
 <body>
 <nav class="navbar"><div class="inner">
-<a class="brand" href="{{ route('posts.index') }}">📰 Blog Pasak-No</a>
+<a class="brand" href="{{ route('posts.index') }}">📰 Blog</a>
 <button class="hamburger" id="navToggle" type="button" aria-label="Menu">☰</button>
 <div class="navlinks" id="navLinks">
 <a href="{{ route('posts.index') }}" class="{{ request()->routeIs('posts.*') ? 'active' : '' }}">Beranda</a>
@@ -89,10 +71,6 @@ table{font-size:.78rem}
 <a href="{{ route('categories.index') }}" class="{{ request()->routeIs('categories.*') ? 'active' : '' }}">Kategori</a>
 <a href="{{ route('tags.index') }}" class="{{ request()->routeIs('tags.*') ? 'active' : '' }}">Tags</a>
 <a href="{{ route('contacts.index') }}" class="{{ request()->routeIs('contacts.*') ? 'active' : '' }}">Kontak</a>
-@if(Route::has('pasak.dashboard.overview'))<a href="{{ route('pasak.dashboard.overview') }}" class="{{ request()->routeIs('pasak.dashboard.*') ? 'active' : '' }}">🛡️ Dasbor Bawaan</a>@endif
-@auth
-@if(Route::has('keamanan.index'))<a href="{{ route('keamanan.index') }}" class="{{ request()->routeIs('keamanan.*') ? 'active' : '' }}">🛡️ Keamanan Kustom</a>@endif
-@endauth
 <span class="nav-auth">
 @auth
 <span class="meta">👤 {{ auth()->user()->name }}</span>
@@ -110,7 +88,6 @@ table{font-size:.78rem}
 @if($errors->any())<div class="card err"><ul>@foreach($errors->all() as $e)<li>{{ $e }}</li>@endforeach</ul></div>@endif
 @yield('content')
 </main>
-<footer class="footer">Blog demo lab lokal — dilindungi <b>Pasak (Bulwark) WAF</b>@if(Route::has('pasak.dashboard.overview')) · <a href="{{ route('pasak.dashboard.overview') }}">Dasbor keamanan</a>@endif</footer>
-@include('layouts._vuln-sheet')
+<footer class="footer">Blog demo lab lokal</footer>
 </body>
 </html>
