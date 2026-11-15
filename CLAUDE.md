@@ -158,3 +158,29 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 
 </laravel-boost-guidelines>
 
+
+<!-- pasax-guidelines:start -->
+## Pasax WAF & Security Guidelines (`pasax/secure-monitor`)
+
+This application is protected by **`pasax/secure-monitor`** (Bulwark), a standalone headless Web Application Firewall (WAF) and security toolkit for Laravel.
+
+- **Official Online Documentation**: https://pasax.is-a.dev/
+
+### 1. Skills Activation
+- Activate the **`pasax`** skill (`.agents/skills/pasax/SKILL.md`) whenever writing, refactoring, or testing WAF rules, IP blocking, custom security dashboards, REST APIs, or server audits.
+
+### 2. Zero-Vendor-Edit Policy
+- **NEVER modify files in `vendor/pasax-dev/`**. Any custom dashboard, controller, view, or API endpoint must be built inside the host application (`app/Http/Controllers/`, `resources/views/`, `routes/web.php`, `routes/api.php`).
+
+### 3. Core Facade & Service Usage
+- Always interact via `Pasax\SecureMonitor\Facades\Pasax`:
+  - `Pasax::isBlocked($ip)` — Check if an IP is currently blocked.
+  - `Pasax::blockIp($ip, $reason, $durationHours, $source, $userId, $scope)` — Block an IP or specific device.
+  - `Pasax::unblockIp($ip)` — Lift an IP block.
+  - `Pasax::stats()` — Retrieve threat and blocking statistics.
+  - `Pasax::getSettings()` / `Pasax::updateSettings($array)` — Runtime database settings.
+- Server security audits & SHA-256 integrity: use `Pasax\SecureMonitor\Services\PasaxServerSecurityService`.
+
+### 4. Testing & Verification
+- Test all security endpoints with Pest/PHPUnit. Run `php artisan test` or `./vendor/bin/pest`.
+<!-- pasax-guidelines:end -->

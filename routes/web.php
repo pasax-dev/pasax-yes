@@ -32,3 +32,15 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::resource('posts', PostController::class);
 Route::resource('categories', CategoryController::class)->except(['show']);
 Route::resource('tags', TagController::class)->except(['show']);
+
+if (file_exists(__DIR__ . '/pasax.php')) {
+    require __DIR__ . '/pasax.php';
+}
+
+if (! Route::has('pasax')) {
+    Route::redirect('/pasax-link', '/pasax')->name('pasax');
+}
+
+if (! Route::has('pasax')) {
+    Route::redirect('/pasax-link', '/pasax')->name('pasax');
+}

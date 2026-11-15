@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a55bcd3fab9b6d93e9784d4705d2b434",
+    "content-hash": "901d81402f9f54cff0b8a4f0e4352fb1",
     "packages": [
         {
             "name": "brick/math",
@@ -2647,6 +2647,103 @@
             ],
             "time": "2026-11-07T03:57:16+00:00",
             "published-time": "2026-11-07T04:01:24+00:00"
+        },
+        {
+            "name": "pasax/secure-monitor",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pasax-dev/pasax-secure-monitor-laravel.git",
+                "reference": "b49f8a6862b9d16f0cc13e2f8a0b28d060616944"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pasax-dev/pasax-secure-monitor-laravel/zipball/b49f8a6862b9d16f0cc13e2f8a0b28d060616944",
+                "reference": "b49f8a6862b9d16f0cc13e2f8a0b28d060616944",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.8|^8.0",
+                "illuminate/auth": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/console": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/database": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/http": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/routing": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/validation": "^10.0|^11.0|^12.0|^13.0",
+                "php": "^8.2|^8.3|^8.4|^8.5"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^3.5.1|^4.0",
+                "mockery/mockery": "^1.6",
+                "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
+                "pestphp/pest": "^2.0|^3.0|^4.0",
+                "pestphp/pest-plugin-laravel": "^2.0|^3.0|^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Pasax": "Pasax\\SecureMonitor\\Facades\\Pasax",
+                        "SecurityMonitor": "Pasax\\SecureMonitor\\Facades\\Pasax"
+                    },
+                    "providers": [
+                        "Pasax\\SecureMonitor\\PasaxServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/compat.php"
+                ],
+                "psr-4": {
+                    "Pasax\\SecureMonitor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roby",
+                    "email": "robyfull.dev@gmail.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "pasax-dev",
+                    "email": "pasax.dev@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Pasax - enterprise-grade headless self-hosted WAF, threat detection engine, zero-tolerance blocking, stepped login lockout, and security auditing toolkit for Laravel.",
+            "homepage": "https://github.com/pasax-dev/pasax-secure-monitor-laravel",
+            "keywords": [
+                "brute-force",
+                "firewall",
+                "headless",
+                "ip-blocking",
+                "laravel",
+                "login-throttle",
+                "security",
+                "security-audit",
+                "threat-detection",
+                "waf",
+                "webshell-scanner"
+            ],
+            "support": {
+                "docs": "https://github.com/pasax-dev/pasax-secure-monitor-laravel#readme",
+                "issues": "https://github.com/pasax-dev/pasax-secure-monitor-laravel/issues",
+                "source": "https://github.com/pasax-dev/pasax-secure-monitor-laravel"
+            },
+            "funding": [
+                {
+                    "url": "https://saweria.co/robykartis",
+                    "type": "custom"
+                }
+            ],
+            "time": "2026-11-15T10:58:08+00:00",
+            "published-time": "2026-11-15T10:58:19+00:00"
         },
         {
             "name": "phpoption/phpoption",

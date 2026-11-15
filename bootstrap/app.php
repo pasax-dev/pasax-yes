@@ -4,6 +4,9 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
+use Pasax\SecureMonitor\Http\Middleware\PasaxBlockIpAddress;
+use Pasax\SecureMonitor\Http\Middleware\PasaxDetectSecurityThreats;
+use Pasax\SecureMonitor\Http\Middleware\PasaxInjectAnnouncementBanner;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -13,7 +16,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->append([
+            PasaxBlockIpAddress::class,
+            PasaxDetectSecurityThreats::class,
+            PasaxInjectAnnouncementBanner::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
