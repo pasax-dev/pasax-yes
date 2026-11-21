@@ -1,4 +1,4 @@
-{{-- Tombol "Isi Otomatis" untuk halaman create — Murni Blade + JS vanilla, tanpa NPM.
+{{-- Tombol "Isi Otomatis" untuk halaman create — Murni Blade + JS vanilla, Material Design 3 Style.
      Pakai: @include('layouts._autofill', ['presets' => [
          ['fields' => ['name' => 'Budi'], 'checks' => []],
      ]])
@@ -8,7 +8,10 @@
        checks ['tags[]' => ['take' => 2]] → centang 2 checkbox acak.
      Hanya mengisi field yang masih kosong agar tidak menimpa ketikan user. --}}
 <span data-autofill-root data-presets='@json($presets ?? [])'>
-    <button class="btn" type="button">✨ Isi Otomatis</button>
+    <button class="btn tonal" type="button" style="display:inline-flex;align-items:center;gap:.4rem;">
+        <span class="material-symbols-outlined" style="font-size:18px">auto_awesome</span>
+        <span>Isi Otomatis</span>
+    </button>
 </span>
 <script>
 (function (root) {
